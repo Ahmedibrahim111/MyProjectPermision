@@ -1,4 +1,5 @@
-﻿namespace Permission.Model
+﻿using Permission.Model;
+namespace Permission.Model
 {
     public class Manger
     {
@@ -6,4 +7,6 @@
         public string Name { get; set; }
 
     }
+
+
 }

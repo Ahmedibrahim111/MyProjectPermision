@@ -22,18 +22,18 @@ namespace Permission.Controllers
 
         // GET: api/Mangers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Manger>>> Getmangers()
+        public async Task<IActionResult> Getmangers()
         {
           if (_context.mangers == null)
           {
               return NotFound();
           }
-            return await _context.mangers.ToListAsync();
+            return Ok( await _context.mangers.ToListAsync());
         }
 
         // GET: api/Mangers/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Manger>> GetManger(int id)
+        public async Task<IActionResult> GetManger(int id)
         {
           if (_context.mangers == null)
           {
@@ -46,7 +46,7 @@ namespace Permission.Controllers
                 return NotFound();
             }
 
-            return manger;
+            return Ok( manger);
         }
 
         // PUT: api/Mangers/5
@@ -92,7 +92,7 @@ namespace Permission.Controllers
         // POST: api/Mangers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Manger>> PostManger(Manger manger)
+        public async Task<IActionResult> PostManger(Manger manger)
         {
           if (_context.mangers == null)
           {
